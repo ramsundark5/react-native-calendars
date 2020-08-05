@@ -147,7 +147,7 @@ export default class AgendaView extends Component {
   }
 
   calendarOffset() {
-    return 96 - (this.viewHeight / 2);
+    return 90 - (this.viewHeight / 2);
   }
 
   initialScrollPadPosition = () => {
@@ -175,6 +175,7 @@ export default class AgendaView extends Component {
   onLayout(event) {
     this.viewHeight = event.nativeEvent.layout.height;
     this.viewWidth = event.nativeEvent.layout.width;
+    this.calendar.scrollToDay(this.state.selectedDay.clone(), this.calendarOffset(), false); //by adding this line
     this.forceUpdate();
   }
 
